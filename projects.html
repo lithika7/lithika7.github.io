@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Lithika Raju</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    main {
+      position: relative;
+      padding: 100px 60px;
+      min-height: 90vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Floating orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+      animation: float 12s infinite ease-in-out alternate;
+      z-index: 0;
+    }
+
+    .orb1 { width: 280px; height: 280px; top: 10%; left: 5%; background: #7b61ff; }
+    .orb2 { width: 300px; height: 300px; bottom: 15%; right: 10%; background: #00e0a1; }
+    .orb3 { width: 200px; height: 200px; top: 40%; left: 70%; background: #ff6b8a; }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.5; }
+      100% { transform: translateY(-40px); opacity: 0.8; }
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+      -webkit-background-clip: text;
+      color: transparent;
+      z-index: 10;
+      position: relative;
+      font-weight: 700;
+    }
+
+    /* Projects grid */
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      z-index: 10;
+      position: relative;
+    }
+
+    .project-card {
+      border-radius: 18px;
+      padding: 30px;
+      color: white;
+      text-align: left;
+      font-weight: 400;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: default;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    }
+
+    .project-card h3 {
+      font-size: 1.6em;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 1.05em;
+      line-height: 1.7;
+    }
+
+    /* Color themes for each card */
+    .card1 { background: linear-gradient(135deg, #6a11cb, #2575fc); }
+    .card2 { background: linear-gradient(135deg, #00b09b, #96c93d); }
+    .card3 { background: linear-gradient(135deg, #f7971e, #ffd200); color: #222; }
+    .card4 { background: linear-gradient(135deg, #ff0844, #ffb199); color: #222; }
+
+    @media (max-width: 900px) {
+      main { padding: 60px 20px; }
+      .project-card { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">LR</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <h1>My Projects</h1>
+
+    <div class="projects-container">
+
+      <div class="project-card card1">
+        <h3>AI Chatbot Assistant 🤖</h3>
+        <p>A conversational AI assistant built with JavaScript and NLP concepts. It provides smart, instant replies and simulates real-world chatbot interactions.</p>
+      </div>
+
+      <div class="project-card card2">
+        <h3>Personal Portfolio Website 📚</h3>
+        <p>A fully responsive, multi-page portfolio site designed with HTML, CSS, and JS. Includes smooth animations, futuristic styling, and professional layout.</p>
+      </div>
+
+      <div class="project-card card3">
+        <h3>AI Image Generator ⚙️</h3>
+        <p>Developed a generative AI-based web app that transforms text prompts into creative images using neural network models and OpenAI APIs.</p>
+      </div>
+
+      <div class="project-card card4">
+        <h3>Smart Weather App 🌧️</h3>
+        <p>A web application that shows real-time weather and offers outfit recommendations using AI-based predictions for daily conditions.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> Lithika Raju — Web Developer</footer>
+  <script src="script.js"></script>
+</body>
+</html>

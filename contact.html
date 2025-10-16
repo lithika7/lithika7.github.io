@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Lithika Raju</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    main {
+      position: relative;
+      padding: 100px 60px;
+      min-height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+      animation: float 12s infinite ease-in-out alternate;
+      z-index: 0;
+    }
+
+    .orb1 { width: 280px; height: 280px; top: 5%; left: 10%; background: #7b61ff; }
+    .orb2 { width: 300px; height: 300px; bottom: 10%; right: 10%; background: #00e0a1; }
+    .orb3 { width: 200px; height: 200px; top: 50%; left: 70%; background: #ff6b8a; }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.5; }
+      100% { transform: translateY(-40px); opacity: 0.8; }
+    }
+
+    h1 {
+      font-size: 2.8em;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 10px;
+      z-index: 10;
+      position: relative;
+    }
+
+    p.sub {
+      color: var(--text);
+      font-size: 1.1em;
+      z-index: 10;
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 40px;
+      flex-wrap: wrap;
+      z-index: 10;
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .contact-card {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-align: left;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(255,255,255,0.25);
+    }
+
+    .contact-card h2 {
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 15px;
+    }
+
+    .contact-card p, .contact-card a {
+      color: var(--text);
+      font-size: 1.05em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .contact-card a:hover {
+      color: var(--accent2);
+    }
+
+    form {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    input, textarea {
+      padding: 12px 15px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      font-size: 1em;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 0 10px var(--accent2);
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    button {
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      border: none;
+      padding: 12px;
+      color: white;
+      font-size: 1.1em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, var(--accent2), var(--accent3));
+      transform: scale(1.05);
+    }
+
+    /* Thank-you popup */
+    .thankyou-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.2);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s ease;
+      z-index: 999;
+    }
+
+    .thankyou-popup.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .thankyou-popup h2 {
+      background: linear-gradient(90deg, #00e0a1, #7b61ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .thankyou-popup p {
+      color: #ccc;
+      font-size: 1.1em;
+    }
+
+    @media (max-width: 900px) {
+      main { padding: 60px 20px; }
+      .contact-container { flex-direction: column; align-items: center; }
+      .contact-card, form { width: 100%; max-width: 500px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">LR</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <h1>Contact Me</h1>
+    <p class="sub">Let’s collaborate, build something amazing, or just say hello! 🚀</p>
+
+    <div class="contact-container">
+      <div class="contact-card">
+        <h2>📧 Get in Touch</h2>
+        <p><strong>Email:</strong> <a href="mailto:lithika126@gmail.com">lithika126@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+919345544632">+91 93455 44632</a></p>
+        <p><strong>Location:</strong> Tamil Nadu, India 🇮🇳</p>
+
+        <h2>🌐 Social Links</h2>
+        <a href="https://www.linkedin.com/in/lithika-raju-a02562327/">LinkedIn</a>
+        <a href="https://github.com/lithika7">GitHub</a>
+        <a href="https://www.instagram.com/charming_lilly_7/">Instagram</a>
+      </div>
+
+      <!-- Formspree integrated contact form -->
+      <form id="contactForm" action="https://formspree.io/f/xanpajrj" method="POST">
+        <h2>💬 Send a Message</h2>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Thank-you popup -->
+    <div class="thankyou-popup" id="thankyouPopup">
+      <h2>Thank You! 💫</h2>
+      <p>Your message has been successfully sent.<br> I’ll get back to you soon, Lithika appreciates it! 🌸</p>
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> Lithika Raju — Web Developer</footer>
+
+  <script>
+    // Thank-you popup and email submission handler
+    const form = document.getElementById('contactForm');
+    const popup = document.getElementById('thankyouPopup');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        popup.classList.add('active');
+        form.reset();
+        setTimeout(() => popup.classList.remove('active'), 3000);
+      } else {
+        alert('❌ Message could not be sent. Please try again.');
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

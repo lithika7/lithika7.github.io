@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Lithika Raju</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Floating orbs background */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+      animation: float 12s infinite ease-in-out alternate;
+      z-index: 0;
+    }
+
+    .orb1 { width: 280px; height: 280px; top: 5%; left: 10%; background: #7b61ff; animation-delay: 0s; }
+    .orb2 { width: 300px; height: 300px; bottom: 10%; right: 10%; background: #00e0a1; animation-delay: 3s; }
+    .orb3 { width: 200px; height: 200px; top: 50%; left: 70%; background: #ff6b8a; animation-delay: 6s; }
+
+    @keyframes float {
+      0% { transform: translateY(0px); opacity: 0.5; }
+      100% { transform: translateY(-40px); opacity: 0.8; }
+    }
+
+    main {
+      position: relative;
+      padding: 100px 60px;
+      min-height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .about-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      padding: 50px;
+      border-radius: 20px;
+      max-width: 800px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.08);
+      animation: fadeIn 1.5s ease-out;
+      z-index: 10;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .about-card h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .about-card h2 {
+      font-size: 1.6em;
+      margin-top: 30px;
+      background: linear-gradient(90deg, var(--accent3), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .about-card p {
+      line-height: 1.7;
+      color: var(--text);
+      font-size: 1.1em;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 900px) {
+      main { padding: 60px 20px; text-align: center; }
+      .about-card { max-width: 95%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">LR</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <div class="about-card">
+      <h1>About Me</h1>
+      <p><strong>Hi! I’m Lithika Raju</strong>, a passionate <span class="gradient-text">Web Developer</span> and <span class="gradient-text">Generative AI enthusiast</span> from India.  
+      I’m driven by creativity, curiosity, and the endless possibilities of blending technology with imagination. I focus on developing interactive, user-centered, and futuristic web experiences.</p>
+
+      <h2>🌟 My Career Objective</h2>
+      <p>To fuse modern web technologies with AI innovation, creating seamless, intelligent, and beautiful web solutions that make digital interactions smarter and more human.</p>
+
+      <h2>💡 Fun Fact</h2>
+      <p>When I’m not coding, I love designing colorful digital visuals, exploring AI art tools, and experimenting with creative UI effects that tell stories through design.</p>
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> Lithika Raju — Web Developer</footer>
+  <script src="script.js"></script>
+</body>
+</html>
